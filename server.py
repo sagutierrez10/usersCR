@@ -24,6 +24,36 @@ def create_user():
 def readAll():
     return render_template('read.html', users=Users.get_all())
 
+@app.route('/users/<id>')
+def showUser(id):
+    return render_template( 'show.html', user=Users.get(id))
+
+@app.route("/users/<id>/edit")
+def edit(id):
+    return render_template("edit.html", user=Users.get(id))
+
+@app.route("/users/<id>/update", methods=["POST"])
+def update(id):
+    data = {
+        "first_name": request.form["fname"],
+        "last_name" : request.form["lname"],
+        "email" : request.form["email"],
+        'id': id
+    }
+    print(data["first_name"])
+    Users.setUser(data) 
+    return redirect('/users/%s'%(id))
+
+@app.route('/users/<id>/delete')
+def deleteUser(id):
+    data ={
+        'id': id
+    }
+    Users.deleteUser(data)
+    return redirect('/users')
+
+
+
             
 if __name__ == "__main__":
     app.run(debug=True)

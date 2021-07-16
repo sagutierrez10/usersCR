@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>User {{user.id}}</h1>
+        <a href='/users'> Home </a>
+    </div>
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <th scope="row">First Name</th>
+                <td>{{user.first_name}}</tr>
+            <tr>
+                <th scope="row">Last Name</th>
+                <td>{{user.last_name}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Email</th>
+                <td>{{user.email}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Created On:</th>
+                <td>{{user.created_at}}</td>
+            <tr>
+            <tr>
+                    <th scope="row">Last Updated On:</th>
+                    <td>{{user.updated_at}}</td>
+            <tr>
+        </tbody>
+    </table>
+    <br>
+    <a href='/users/{{user.id}}/edit'>Edit</a>
+    <a href='/users/{{user.id}}/delete'>Delete</a>
+</body>
+</html>

@@ -15,20 +15,20 @@
 </head>
 <body>
     <div>
-        <h1>Add a New User</h1>
+        <h1>Edit User {{user.id}}</h1>
         <a href='/users'> Home </a>
     </div>
-    <form action="/create_user" method="POST">
+    <form action="/users/{{user.id}}/update" method="POST">
         <label for="fname">First Name:</label><br>
-        <input type="text" name="fname">
+        <input type="text" value={{user.first_name}} name="fname">
         <br></br>
         <label for="lname">Last Name:</label><br>
-        <input type="text" name="lname">
+        <input type="text" value={{user.last_name}} name="lname">
         <br></br>
         <label for="email" >Email:</label><br>
-        <input type="text" name="email">
+        <input type="text" value={{user.email}} name="email">
         <br></br>
-        <input type="submit" value="Create">
+        <input type="submit" value="Update">
     </form> 
 </body>
 </html>
